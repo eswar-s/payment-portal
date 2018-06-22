@@ -66,6 +66,11 @@ const styles = theme => ({
         filter: 'grayscale(0)',
         padding: '0 !important',
     },
+    disabled: {
+        pointerEvents: 'none',
+        opacity: 0.5,
+        filter: 'grayscale(0.5)',
+    },
 });
 
 const ITEM_HEIGHT = 48;
@@ -99,7 +104,7 @@ class EnhancedTableToolbar extends Component {
     }
 
     render() {
-        const { classes, numSelected, columns, currencies } = this.props;
+        const { classes, numSelected, columns, currencies, adhocPaymentEnabled } = this.props;
         const { filterElement } = this.state;
         let selectedCurrencyIndex = currencies.findIndex(currency => currency.selected);
         const currenciesWithIcons = currencies.map(currency => {
@@ -124,7 +129,9 @@ class EnhancedTableToolbar extends Component {
                 </div>
                 <div className={classes.spacer} />
                 {numSelected > 0 ? (
-                    <div className={classes.actions}>
+                    <div className={classNames(classes.actions, {
+                        [classes.disabled]: adhocPaymentEnabled
+                    })}>
                         <Tooltip title="Clear All">
                             <IconButton aria-label="Clear All" onClick={this.props.unselectAll}>
                                 <ClearAllIcon />
@@ -184,6 +191,7 @@ EnhancedTableToolbar.propTypes = {
     currencies: PropTypes.array,
     toggleColumns: PropTypes.func,
     toggleCurrency: PropTypes.func,
+    adhocPaymentEnabled: PropTypes.bool
 };
 
 export default withStyles(styles)(EnhancedTableToolbar);

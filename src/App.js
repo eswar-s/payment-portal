@@ -8,7 +8,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import withRoot from './withRoot';
 import RetailerInfo from './RetailerInfo';
 import Authenticate from './Authenticate';
-import InvoicesPayment from './InvoicesPayment';
+import OpenInvoices from './OpenInvoices';
 import NoMatch from './NoMatch';
 import GabrielCircleIcon from './GabrielCircleIcon';
 import requireAuth from './require_auth';
@@ -59,7 +59,7 @@ class App extends Component {
               render={props => <Redirect to='/authenticate'/> }
             />
             <Route exact path="/authenticate/:token?/:code?" component={Authenticate} />
-            <Route exact path="/invoices-payment" component={requireAuth(InvoicesPayment)} />
+            <Route exact path="/open-invoices" component={requireAuth(OpenInvoices)} />
             <Route component={NoMatch} />
           </Switch>
         </main>

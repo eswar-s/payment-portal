@@ -22,7 +22,7 @@ const styles = theme => ({
                 paddingRight: 8,
             },
         }
-    }
+    },
 });
 
 class EnhancedTableHead extends Component {
@@ -31,14 +31,18 @@ class EnhancedTableHead extends Component {
     };
 
     render() {
-        const { classes, columns, onSelectAllClick, order, orderBy, numSelected, rowCount } = this.props;
+        const { classes, columns, onSelectAllClick, order, orderBy, numSelected, rowCount, adhocPaymentEnabled } = this.props;
 
         return (
             <TableHead className={classNames({
                 [classes.disabled]: rowCount <= 0,
             })}>
                 <TableRow>
-                    <TableCell padding="none">
+                    <TableCell padding="none" 
+                        className={classNames({
+                            [classes.disabled]: adhocPaymentEnabled
+                        })}
+                    >
                         <Checkbox
                             indeterminate={numSelected > 0 && numSelected < rowCount}
                             checked={numSelected === rowCount}
@@ -83,7 +87,8 @@ EnhancedTableHead.propTypes = {
     onSelectAllClick: PropTypes.func.isRequired,
     order: PropTypes.string.isRequired,
     orderBy: PropTypes.string.isRequired,
-    rowCount: PropTypes.number.isRequired
+    rowCount: PropTypes.number.isRequired,
+    adhocPaymentEnabled: PropTypes.bool
 };
 
 export default withStyles(styles)(EnhancedTableHead);

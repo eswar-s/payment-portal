@@ -1,4 +1,5 @@
-import { FETCH_INVOICES, FETCH_INVOICES_SUCCESS, FETCH_INVOICES_ERROR, TOGGLE_INVOICE, TOGGLE_ALL_INVOICES } from '../action-types/invoice';
+import { FETCH_INVOICES, FETCH_INVOICES_SUCCESS, FETCH_INVOICES_ERROR, 
+  TOGGLE_INVOICE, TOGGLE_ALL_INVOICES, CHANGE_PAYMENT_AMOUNT, CHANGE_ADHOC_PAYMENT } from '../action-types/invoice';
 
 export const fetchInvoices = (currencyCode) => {
 
@@ -34,5 +35,17 @@ export const toggleInvoice = (invoiceNumber) => {
 export const toggleAllInvoices = (checked) => {
   return dispatch => {
     dispatch({type: TOGGLE_ALL_INVOICES, payload: checked});
+  }
+}
+
+export const changePaymentAmount = (invoiceNumber, paymentAmount) => {
+  return dispatch => {
+    dispatch({type: CHANGE_PAYMENT_AMOUNT, payload: {invoiceNumber, paymentAmount}});
+  }
+}
+
+export const changeAdhocAmount = (adhocPaymentEnabled, adhocPayment) => {
+  return dispatch => {
+    dispatch({type: CHANGE_ADHOC_PAYMENT, payload: {adhocPaymentEnabled, adhocPayment}});
   }
 }

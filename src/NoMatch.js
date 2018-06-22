@@ -9,7 +9,9 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
     flexDirection: 'column',
-    height: 'calc(100vh - 64px)',
+    margin: -4,
+    marginTop: -104,
+    height: '100vh',
     width: '100vw',
     display: 'flex',
     justifyContent: 'center',

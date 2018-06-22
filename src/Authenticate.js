@@ -145,7 +145,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => bindActionCreators({
-    changePage: () => push('/invoices-payment'),
+    changePage: () => push('/open-invoices'),
     authenticate
 }, dispatch)
 
