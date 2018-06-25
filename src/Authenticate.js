@@ -138,7 +138,6 @@ Authenticate.propTypes = {
 };
 
 const mapStateToProps = state => ({
-    count: state.counter.count,
     isAuthenticating: state.auth.isAuthenticating,
     authenticated: state.auth.authenticated,
     authError: state.auth.error
