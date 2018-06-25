@@ -19,7 +19,6 @@ class OpenInvoices extends Component {
 
     constructor(props) {
         super(props);
-        console.log(this.props.customer)
     }
 
     render() {

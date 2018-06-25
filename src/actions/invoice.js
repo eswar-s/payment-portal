@@ -11,7 +11,7 @@ export const fetchInvoices = (currencyCode) => {
 
       let token = localStorage.getItem('token');
       let code = localStorage.getItem('code');
-      const response = await fetch(`http://localhost:8080/get-customer-invoices?token=${token}&code=${code}&currency=${currencyCode}`)
+      const response = await fetch(`${process.env.REACT_APP_API_INVOICES_URL}?token=${token}&code=${code}&currency=${currencyCode}`)
       const data = await response.json();
       if (data.status === 'success') {
         dispatch({type: FETCH_INVOICES_SUCCESS, payload: data.invoices.map(invoice => {

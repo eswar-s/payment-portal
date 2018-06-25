@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { lighten } from '@material-ui/core/styles/colorManipulator';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
-import Tooltip from '@material-ui/core/Tooltip';
+// import Tooltip from '@material-ui/core/Tooltip';
 import IconButton from '@material-ui/core/IconButton';
 import ClearAllIcon from '@material-ui/icons/ClearAll';
 import FilterListIcon from '@material-ui/icons/FilterList';
@@ -132,19 +132,19 @@ class EnhancedTableToolbar extends Component {
                     <div className={classNames(classes.actions, {
                         [classes.disabled]: adhocPaymentEnabled
                     })}>
-                        <Tooltip title="Clear All">
+                        {/* <Tooltip title="Clear All"> */}
                             <IconButton aria-label="Clear All" onClick={this.props.unselectAll}>
                                 <ClearAllIcon />
                             </IconButton>
-                        </Tooltip>
+                        {/* </Tooltip> */}
                     </div>
                 ) : (
                     <div className={classes.actions}>
-                        <Tooltip title="Filter list">
+                        {/* <Tooltip title="Filter list"> */}
                             <IconButton aria-label="Filter list" onClick={this.handleClick}>
                                 <FilterListIcon/>
                             </IconButton>
-                        </Tooltip>
+                        {/* </Tooltip> */}
                         <BottomNavigation
                             className={classes.currencies}
                             value={selectedCurrencyIndex}

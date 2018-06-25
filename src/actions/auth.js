@@ -1,4 +1,4 @@
-import { AUTHENTICATED, AUTHENTICATING, UNAUTHENTICATED, AUTHENTICATION_ERROR } from '../action-types/auth';
+import { AUTHENTICATED, AUTHENTICATING, AUTHENTICATION_ERROR } from '../action-types/auth';
 
 export const authenticate = (token, code) => {
 
@@ -8,7 +8,7 @@ export const authenticate = (token, code) => {
         type: AUTHENTICATING
       })
 
-      const response = await fetch(`http://localhost:8080/authenticate?token=${token}&code=${code}`)
+      const response = await fetch(`${process.env.REACT_APP_API_AUTH_URL}?token=${token}&code=${code}`)
       const data = await response.json();
       if (data.status === 'success') {
         localStorage.setItem('token', token);

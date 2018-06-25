@@ -16,6 +16,7 @@ import requireAuth from './require_auth';
 const styles = theme => ({
   root: {
     flexGrow: 1,
+    marginTop: 'env(safe-area-inset-top)',
   },
   appBar: {
     paddingTop: 'env(safe-area-inset-top)',

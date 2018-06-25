@@ -5,7 +5,11 @@ import createHistory from 'history/createBrowserHistory'
 import rootReducer from './reducers'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
-export const history = createHistory()
+let historyData = {}
+if (process.env.PUBLIC_URL) {
+  historyData = {basename: process.env.PUBLIC_URL};
+}
+export const history = createHistory(historyData)
 
 const initialState = {}
 const enhancers = []
