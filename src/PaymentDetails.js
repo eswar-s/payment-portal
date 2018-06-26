@@ -318,7 +318,7 @@ class PaymentDetails extends Component {
                             </Grid>
                         </Grid>}
                     </Grid>
-                    {displayCardInfo && <Hidden smDown>
+                    {displayCardInfo && <Hidden only="xs">
                         <Grid item sm={5}>
                             <Cards
                                 number={number}
