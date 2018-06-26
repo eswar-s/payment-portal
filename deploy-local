@@ -1,7 +1,4 @@
 mv .env.production .env.production.bak
 yarn build
-mkdir build/relative
-cp -r build/static build/relative/.
-cp -r build/*.json build/relative/.
 mv .env.production.bak .env.production
 serve -s build
