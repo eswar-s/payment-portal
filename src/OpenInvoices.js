@@ -9,8 +9,9 @@ import PaymentDetails from './PaymentDetails';
 
 const styles = theme => ({
     root: {
-        display: 'table',
-        width: '100%',
+        display: 'flex',
+        flexWrap: 'wrap',
+        flexDirection: 'column',
         position: 'relative',
     },
 });
